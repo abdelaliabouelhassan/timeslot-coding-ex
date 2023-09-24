@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@types/pikaday": "^1.7.6",
+    "autoprefixer": "^10.4.8",
+    "dotenv": "^16.0.3",
+    "nuxt": "^3.4.1",
+    "postcss": "^8.4.14",
+    "postcss-import": "^14.1.0",
+    "postcss-pxtorem": "^6.0.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss": "^3.3.1"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.1",
+    "date-fns": "^2.28.0",
+    "pikaday": "^1.8.2",
+    "pinia": "^2.0.35",
+    "spacetime": "^7.2.0",
+    "vue": "^3.2.37",
+    "zod": "^3.21.4"
+  }
+}
