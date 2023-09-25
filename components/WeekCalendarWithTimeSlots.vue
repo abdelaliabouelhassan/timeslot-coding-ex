@@ -1,7 +1,7 @@
 <template>
-  <section class="px-[16px]">
+  <section class="w-[480px] rounded-[16px] bg-white px-[24px]">
     <Spacer class="h-[16px]" />
-    <div class="rounded-[20px] bg-white px-[20px] py-[24px]">
+    <div class="rounded-[20px] px-[20px] py-[24px]">
       <WeekPicker
         :can-go-next="true"
         :can-go-back="false"
@@ -24,7 +24,7 @@
         <TimeSlot time-start-end="13:00 - 13:30" :is-selected="false" />
         <TimeSlot time-start-end="16:30 - 17:00" :is-selected="false" />
       </div>
-      <Spacer class="h-[104px]" />
+      <Spacer class="h-[24px]" />
     </div>
   </section>
 </template>
