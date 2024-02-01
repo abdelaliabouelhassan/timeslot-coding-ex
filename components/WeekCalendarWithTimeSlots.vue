@@ -61,18 +61,15 @@ const calendarDays = computed<WeekCalendarDay[]>(() => {
 
 
 const determineAvailabilityState = (availabilityData) => {
+  const { length } = availabilityData;
 
-  if (availabilityData.length === 0) {
-      return 'ZERO_APPOINTMENTS_AVAILABLE';
-    }
+  if (length === 0) {
+    return 'ZERO_APPOINTMENTS_AVAILABLE';
+  }
 
-    const hasAvailableSlot = availabilityData.some(slot => slot.available);
-    if(hasAvailableSlot){
-      return availabilityData.length == 1 ? 'LAST_APPOINTMENT_AVAILABLE' : 'AVAILABLE_APPOINTMENTS'
-    }
-  
-    return 'ZERO_APPOINTMENTS_AVAILABLE'
-}
+  const hasAvailableSlot = availabilityData.some((slot) => slot.available);
+  return hasAvailableSlot ? (length === 1 ? 'LAST_APPOINTMENT_AVAILABLE' : 'AVAILABLE_APPOINTMENTS') : 'ZERO_APPOINTMENTS_AVAILABLE';
+};
 
 
 const isBackButtonDisabled = computed(() => {
@@ -133,7 +130,7 @@ const selectDay = (key: number) => {
     day.isSelected = day.key === key;
   });
 
-  // Get the selected day
+ 
   const selectedDay = days.value.find((day) => day.key === key);
  
   if (selectedDay) {
@@ -141,11 +138,11 @@ const selectDay = (key: number) => {
      
     const availabilityData = RESPONSE_FROM_API[currentDate] || [];
    
-    // Filter available times
+    
     const availableTimes = availabilityData
       .filter((slot) => slot.available)
       .map((slot) => slot);
-    // Update the Times ref with available times
+      
     Times.value = availableTimes;
   } else {
     Times.value = [];
