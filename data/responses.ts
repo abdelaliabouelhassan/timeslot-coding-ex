@@ -2907,4 +2907,13 @@ export const RESPONSE_FROM_API = {
       available: true,
     },
   ],
+  '2023-10-25': [
+    {
+      start: '2023-10-25T06:00:00Z',
+      end: '2023-10-25T06:30:00Z',
+      resource: 'a0d7Q000004U3qXQAS',
+      available: true,
+    },
+  
+  ],
 }

@@ -1,6 +1,7 @@
 <template>
   <div class="flex items-center justify-between">
     <button
+      @click="Back"
       class="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full border border-gray outline-none focus:outline-none"
       :class="!canGoBack && 'pointer-events-none opacity-25'"
     >
@@ -10,6 +11,7 @@
       {{ selectedDateFormatted }}
     </h3>
     <button
+      @click="Next"
       class="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full border border-gray outline-none focus:outline-none"
       :class="!canGoNext && 'pointer-events-none opacity-25'"
     >
@@ -20,7 +22,7 @@
 
 <script setup lang="ts">
 import { format } from 'date-fns'
-
+const emit = defineEmits(['back','next'])
 const props = defineProps<{
   canGoNext: boolean
   canGoBack: boolean
@@ -30,4 +32,12 @@ const props = defineProps<{
 const selectedDateFormatted = computed(() => {
   return format(props.selectedDate, 'EEE, d LLLL')
 })
+
+const Back = () => {
+  emit('back')
+}
+const Next = () => {
+  emit('next')
+}
+
 </script>
